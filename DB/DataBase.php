@@ -1,4 +1,9 @@
 <?php
+namespace Test\DB;
+
+use PDO;
+use PDOException;
+
 class DataBase
 {
 	// Подключение БД

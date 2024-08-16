@@ -14,12 +14,17 @@
 				<img src="../images/logo.png" alt="Галактический вестник">
 			</li>
 			<?php
-			include "/var/www/workspace/test/www/layout/topMenu.php";
-			foreach($menu as $item){?>
+			include "./navigation/topMenu.php";
+
+			foreach($menu as $item)
+			{
+			?>
 			<li>
 				<a href="<? echo $item["link"]?>"><p class="top-menu__elements--p"><?=$item["text"];?></p></a>
 			</li>
-			<? }?>
+			<?php
+			}
+			?>
 		</ul>
 	</div>
 	<hr>
