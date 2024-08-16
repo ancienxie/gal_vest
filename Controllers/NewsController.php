@@ -7,8 +7,22 @@ use Test\DB\DataBase;
 class NewsController
 {
 	// Количество новостей на странице
-	private $limit = 4;
+	public $limit = 4;
 	
+	public function render($view, $data=[])
+	{
+		extract($data);
+
+		// Буферизация вывода
+		ob_start();
+		include "./Views/news/{$view}.php";
+		$content = ob_get_contents();
+		ob_end_clean();
+
+		// Вывод
+		include "./Views/layout/layout.php";
+	}
+
 	public function actionList($pageNum)
 	{
 		// Получение списка новостей начиная с самой ранней
@@ -24,8 +38,13 @@ class NewsController
 		// Текущая страница новостей
 		$currNewsPage = $pageNum;
 
-		// Подключение верстки
-		include "./Views/newsList.php";	
+		// Обращение к функции вывода
+		$this->render('newsList', [
+			'row' => $row,
+			'news' => $news,
+			'pagesAmount' => $pagesAmount,
+			'currNewsPage' => $currNewsPage,
+		]);
 	}
 
 	public function actionDetail($id)
@@ -33,7 +52,10 @@ class NewsController
 		// Получение всей информации о новости
 		$row = NewsModel::getItem($id);
 
-		// Подключение верстки
-		include "./Views/newsDetail.php";	
+		// Обращение к функции вывода
+		$this->render('newsDetail', 
+		[
+			'row'=>$row,
+		]);
 	}
 }

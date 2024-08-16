@@ -8,13 +8,27 @@
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+	<!-- Header -->
 	<div class="top-menu">
 		<ul class="top-menu__elements">
 			<li>
 				<img src="../images/logo.png" alt="Галактический вестник">
 			</li>
 			<?php
-			include "./navigation/topMenu.php";
+			$menu = [
+				[
+					"link"=>"../",
+					"text"=>"Главная"
+				],
+				[
+					"link"=>"../Views/navigation/company.php",
+					"text"=>"О компании"
+				],
+				[
+					"link"=>"../Views/navigation/contacts.php",
+					"text"=>"Контакты"
+				],
+			];
 
 			foreach($menu as $item)
 			{
@@ -28,4 +42,16 @@
 		</ul>
 	</div>
 	<hr>
+	<!-- Header -->
+
+	<!-- Контент -->
+	<?=$content?>
+	<!-- Контент -->
+
+	<!-- Footer -->
+	<div class="footer">
+		<hr class="footer__line">
+		<p class="footer__text">© 2023 — 2412 «Галактический вестник»</p>
+	</div>
+	<!-- Footer -->
 </body>

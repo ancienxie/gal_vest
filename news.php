@@ -12,5 +12,5 @@ $controller = new NewsController();
 $id = $_GET['id'] ?? 0;
 
 
-// ---Верстка и вывод основной информации---
+// ---Вывод основной информации---
 $controller->actionDetail($id);

@@ -1,6 +1,4 @@
 <?php
-include "./layout/header.php";
-
 if($row)
 {
 ?>
@@ -56,9 +54,4 @@ if($row)
 	
 <?php
 }
-else
-{
-	echo "Новость отсутствует";
-} 
-include "./layout/footer.php";
-?>
+?> 

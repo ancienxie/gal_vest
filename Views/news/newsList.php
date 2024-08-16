@@ -1,6 +1,3 @@
-<?php 
-include "./layout/header.php";
-?>
 <div style="background-image: url(../images/<?=$row['image']?>);" class="ban-image">
 	<section   class="ban-image__text">
 		<h1 class="ban-image__text--title"><?=$row['title']?></h1>
@@ -48,6 +45,3 @@ include "./layout/header.php";
 		<li class="nav__elem--button-li"><a href="?page=<?=min($currNewsPage + 1, $pagesAmount)?>"><div class="nav_elem--button--arrow" id="arrow-2"></div></a></li>
 	</ul>
 </div>
-<?php 
-include "./layout/footer.php";
-?>

@@ -12,5 +12,5 @@ $controller = new NewsController();
 $pageNum = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 
 
-// ---Верстка и вывод основной информации---
+// ---Вывод основной информации---
 $controller->actionList($pageNum);
