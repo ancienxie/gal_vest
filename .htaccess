@@ -1,3 +1,14 @@
-# RewriteEngine on
-# # RewriteCond %{что сравнивать} с чем сравнивать [флаги]
-# RewriteRule ^(.*)$ /$1 [R]
+RewriteEngine On
+Options +FollowSymlinks
+RewriteBase /
+
+RewriteRule ^$ /news/ [L,R=301]
+
+# Перенаправляем запросы вида /news/ на index.php
+RewriteRule ^news/?$ index.php [L]
+
+# Перенаправляем запросы вида /news/page-число на index.php?page=число
+RewriteRule ^news/([0-9]+)/?$ news.php?id=$1 [L]
+
+# Перенаправляем запросы вида /news/page-число на index.php?page=число
+RewriteRule ^news/page-([0-9]+)/?$ index.php?page=$1 [L]

@@ -53,8 +53,7 @@ class NewsController
 		$row = NewsModel::getItem($id);
 
 		// Обращение к функции вывода
-		$this->render('newsDetail', 
-		[
+		$this->render('newsDetail', [
 			'row'=>$row,
 		]);
 	}
