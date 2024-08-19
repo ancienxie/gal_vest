@@ -44,7 +44,7 @@ if($row)
 			</ul>
 			<ul>
 				<li>
-					<img class="news-block__section-right--img" src="../images/<?=$row['image']?>" alt="Картинка">
+					<img class="news-block__section-right--img" src="/images/<?=$row['image']?>" alt="Картинка">
 				</li>
 			</ul>
 		</section>

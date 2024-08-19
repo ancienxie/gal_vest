@@ -2,7 +2,8 @@ RewriteEngine On
 Options +FollowSymlinks
 RewriteBase /
 
-# Перенаправляем все запросы, кроме существующих файлов и директорий, на index.php
+AddType text/css .css
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^.*$ index.php [L]
