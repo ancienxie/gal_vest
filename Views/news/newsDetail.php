@@ -36,7 +36,7 @@ if($row)
 					</p>
 				</li>
 				<li class="news-block__button">
-					<a href="./" class="news-block__button--text">
+					<a href="/news/" class="news-block__button--text">
 						<div id="arrow-3"></div>
 						НАЗАД К НОВОСТЯМ
 					</a>

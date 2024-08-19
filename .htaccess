@@ -2,18 +2,7 @@ RewriteEngine On
 Options +FollowSymlinks
 RewriteBase /
 
-# Перенаправляем основной домен на /news/
-RewriteRule ^$ /news/ [L,R=301]
-
-# Перенаправляем запросы вида /news/ на index.php
-RewriteRule ^news/$ index.php [L]
-
-# Перенаправляем запросы вида /news/page-n на index.php с параметром page=n
-RewriteRule ^news/page-([0-9]+)$ index.php?page=$1 [L]
-
-# Перенаправляем запросы вида /news/?page=n на /news/page-n
-RewriteCond %{QUERY_STRING} ^page=([0-9]+)$
-RewriteRule ^news/$ /news/page-%1? [L,R=301]
-
-# Перенаправляем запросы вида /news/n/ на news.php?id=n
-RewriteRule ^news/([0-9]+)/?$ index.php?id=$1 [L]
+# Перенаправляем все запросы, кроме существующих файлов и директорий, на index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ index.php [L]

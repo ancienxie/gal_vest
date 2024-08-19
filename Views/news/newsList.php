@@ -18,7 +18,7 @@
 			<li class="main-info__block--title"><h2><?=$row['title']?></h2></li>
 			<li class="main-info__block--text"><p><?=strip_tags($row['announce'])?></p></li>
 			<li class="main-info__block--button">
-				<a href="<?=$row['id']?>" class="main-info__block--button--text">
+				<a href="/news/<?=$row['id']?>/" class="main-info__block--button--text">
 					ПОДРОБНЕЕ<div id="arrow-1"></div>
 				</a>
 			</li>
@@ -35,13 +35,13 @@
 		for ($i = 1; $i <= $pagesAmount; $i++): 
 		?>
 		<li>
-			<a href="page-<?=$i?>" class="nav__elem--button <?=($i == $currNewsPage) ? 'nav__elem--button-flag' : ''?>">
+			<a href="/news/page-<?=$i?>/" class="nav__elem--button <?=($i == $currNewsPage) ? 'nav__elem--button-flag' : ''?>">
 				<?=$i?>
 			</a>
 		</li>
 		<?php 
 			endfor; 
 		?>
-		<li class="nav__elem--button-li"><a href="page-<?=min($currNewsPage + 1, $pagesAmount)?>"><div class="nav_elem--button--arrow" id="arrow-2"></div></a></li>
+		<li class="nav__elem--button-li"><a href="/news/page-<?=min($currNewsPage + 1, $pagesAmount)?>/"><div class="nav_elem--button--arrow" id="arrow-2"></div></a></li>
 	</ul>
 </div>
