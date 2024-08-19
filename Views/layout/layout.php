@@ -12,7 +12,7 @@
 	<div class="top-menu">
 		<ul class="top-menu__elements">
 			<li>
-				<img src="../images/logo.png" alt="Галактический вестник">
+				<img src="/images/logo.png" alt="Галактический вестник">
 			</li>
 			<?php
 			$menu = [
