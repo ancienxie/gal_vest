@@ -4,22 +4,47 @@ require_once "./autoload.php";
 
 // Подключение контроллера
 use Test\Controllers\NewsController;
-
-// Создание экземпляра контроллера
-$controller = new NewsController();
+use Test\Controllers\ErrorsController;
 
 $url = $_SERVER['REQUEST_URI'];
 
-
 if ($url == "/") {
-	include './Views/layout/layout.php';
+	$controller = new NewsController();
+	$method = 'actionList';
+	$arguments = [1];
+
+	// Вызов определенного метода контроллера
+	call_user_func_array([$controller, $method], $arguments);
+	
 } elseif ($url == "/news/") {
-	// ---Вывод основной информации для страницы новостей---
-    $controller->actionList(1);
-} elseif (preg_match("{^/news/(\d+)/$}", $url, $id)) {
-	// ---Вывод основной информации для страницы одной конкретной новости---
-    $controller->actionDetail($id[1]);
-} elseif (preg_match("{^/news/page-(\d+)/$}", $url, $pageNum)) {
-    // ---Вывод основной информации для страницы новостей---
-    $controller->actionList($pageNum[1]);
-} 
+	$controller = new NewsController();
+	$method = 'actionList';
+	$arguments = [1];
+
+	// Вызов определенного метода контроллера
+	call_user_func_array([$controller, $method], $arguments);
+
+} elseif (preg_match("{^/news/page-(\d+)/$}", $url, $m)) {
+	$controller = new NewsController();
+	$method = 'actionList';
+	$arguments = [$m[1]];
+
+	// Вызов определенного метода контроллера
+	call_user_func_array([$controller, $method], $arguments);
+
+} elseif (preg_match("{^/news/(\d+)/$}", $url, $m)) {
+	$controller = new NewsController();
+	$method = 'actionDetail';
+	$arguments = [$m[1]];
+
+	// Вызов определенного метода контроллера
+	call_user_func_array([$controller, $method], $arguments);
+
+} else {
+	http_response_code(404);
+	$controller = new ErrorsController();
+	$method = 'actionNotFound';
+
+	// Вызов определенного метода контроллера
+	call_user_func_array([$controller, $method],[]);
+}

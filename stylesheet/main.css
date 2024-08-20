@@ -453,3 +453,13 @@ a {
 	border: 1px solid;
 	border-radius: 5px; 
 }
+
+
+/* Errors */
+
+.error-not-found {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2% 0 0 0;
+}
